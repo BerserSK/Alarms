@@ -1,0 +1,86 @@
+tr{
+    transition: all .25s ease-in-out;
+}
+
+.selected{
+    background-color: #d4c6c6;
+    font-weight: bold;
+    color: #000;
+    border-bottom: #000;
+}
+
+.row1{
+    background: yellow;
+    cursor: pointer;
+}
+
+.table-infos,
+.table-infoss{
+    display: none;
+}
+
+.table-infos-active,
+.table-infoss-active{
+    display: block;
+}
+
+.grupo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.input-alarms{
+    width: 15em;
+    box-shadow: 0 2px 0 0 rgba(14 13 13 / 80%);
+}
+
+.label-alarms{
+    position: relative;
+    width: 45%;
+    align-items: center;
+    display: flex;
+}
+
+.label-alarms-hour{
+    position: relative;
+    width: 45%;
+    align-items: center;
+    display: flex;
+    right: 15em;
+}
+
+.input-alarms-hour{
+    width: 15em;
+    box-shadow: 0 2px 0 0 rgba(14 13 13 / 80%);
+    position: relative;
+    right: 14em;
+}
+.subgrupo{
+    display: flex;
+    padding-bottom: 25px;
+}
+
+.form-alarms{
+}
+
+textarea{
+    outline: none;
+    color: #000 !important;
+    position: relative;
+    bottom: 14px;
+    right: 60px;
+}
+
+.observation{
+    position: relative;
+    right: 65px; 
+}
+
+.submit{
+    width: 10em !important;
+}
+
+.submit:hover{
+    background-color: #546ef1;
+}

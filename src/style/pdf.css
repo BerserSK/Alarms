@@ -1,0 +1,12 @@
+@page{
+    size: A4;
+    margin: 0;
+}
+
+.boton,
+#content nav,
+#sidebar{
+    display: none;
+    visibility: none;
+}
+
