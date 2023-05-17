@@ -52,7 +52,7 @@
 		<li>
 			<a href="index.php?paginaUser=record">
 				<i class='bx bxs-message-dots'></i>
-				<span class="text">Historial / Reportes</span>
+				<span class="text">Historial /a Reportes</span>
 			</a>
 		</li>
 		<li class="active">
