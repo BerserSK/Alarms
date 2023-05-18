@@ -4,6 +4,10 @@
 	    return;
 	}
 
+	if (!isset(	$_SESSION["id_rol_FK"]) || $_SESSION["id_rol_FK"] != 1 ){
+	    echo '<script> window.location = "index.php?paginaGlobal=login";</script>';
+	}
+
 	$lectura = ControladorFormularios::ctrSeleccionarHistorial(null);
 ?>
 

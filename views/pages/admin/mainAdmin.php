@@ -9,8 +9,12 @@
 	    echo '<script> window.location = "index.php?paginaGlobal=login";</script>';
 	}
 
+	if (!isset(	$_SESSION["id_rol_FK"]) || $_SESSION["id_rol_FK"] != 1 ){
+		echo '<script>window.alert("HOla")</script>';
+	    echo '<script> window.location = "index.php?paginaGlobal=login";</script>';
+	}
+
 	$_SESSION['user_name'];
-	foreach($lectura as $key=>$value);
 ?>
 
 

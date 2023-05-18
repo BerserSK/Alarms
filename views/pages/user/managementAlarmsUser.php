@@ -4,6 +4,10 @@
 	    return;
 	}
 
+	if (!isset(	$_SESSION["id_rol_FK"]) || $_SESSION["id_rol_FK"] != 2 ){
+		echo '<script> window.location = "index.php?paginaGlobal=login";</script>';
+	}
+
 	$lectura = ControladorFormularios::ctrSeleccionarLunos(null);
 
 
@@ -52,7 +56,7 @@
 		<li>
 			<a href="index.php?paginaUser=record">
 				<i class='bx bxs-message-dots'></i>
-				<span class="text">Historial /a Reportes</span>
+				<span class="text">Historial / Reportes</span>
 			</a>
 		</li>
 		<li class="active">

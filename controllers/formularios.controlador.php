@@ -39,13 +39,8 @@
                 if(is_array($respuesta) && $usuario == $respuesta["user_name"] && $pass == $respuesta["user_password"] && $respuesta["id_rol_FK"] == 1){
                     $_SESSION["validar"] = "ok";
                     $_SESSION["user_name"] = $usuario;
+                    $_SESSION["id_rol_FK"] = "1";
 
-                    $row = $query -> fetch(PDO::FETCH_NUM);
-                        if($row == true){
-                            // Validar Rol
-                            $rol = $row[5];
-                            $_SESSION['id_rol_FK'] = $rol;
-                        }
                     
 
                     echo '<script>
@@ -60,13 +55,8 @@
                 }else if(is_array($respuesta) && $usuario == $respuesta["user_name"] && $pass == $respuesta["user_password"] && $respuesta["id_rol_FK"] == 2){
                     $_SESSION["validar"] = "ok";
                     $_SESSION["user_name"] = $usuario;
+                    $_SESSION["id_rol_FK"] = "2";
 
-                    $row = $query -> fetch(PDO::FETCH_NUM);
-                        if($row == true){
-                            // Validar Rol
-                            $rol = $row[5];
-                            $_SESSION['id_rol_FK'] = $rol;
-                        }
                     
 
                     echo '<script>

@@ -10,8 +10,10 @@
 	    die;	
 	}
 
+	if (!isset(	$_SESSION["id_rol_FK"]) || $_SESSION["id_rol_FK"] != 2 ){
+		echo '<script> window.location = "index.php?paginaGlobal=login";</script>';
+	}
 	$_SESSION['user_name'];
-	$_SESSION["id_rol_FK"];
 	foreach($lectura as $key=>$value);
 
 	
