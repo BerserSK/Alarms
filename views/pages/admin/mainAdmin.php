@@ -10,8 +10,9 @@
 	}
 
 	if (!isset(	$_SESSION["id_rol_FK"]) || $_SESSION["id_rol_FK"] != 1 ){
-		echo '<script>window.alert("HOla")</script>';
-	    echo '<script> window.location = "index.php?paginaGlobal=login";</script>';
+	    echo '<script > 
+		alert("No se puede ingresar a esta pagina!")
+		window.location = "index.php?paginaGlobal=login";</script>';
 	}
 
 	$_SESSION['user_name'];
@@ -214,6 +215,12 @@
 </section>
 <!-- CONTENT -->
 <script>
+	function ho(){
+		alertify
+		.alert("This is an alert dialog.", function(){
+			alertify.message('OK');
+	});
+	}
 	
 </script>
 
@@ -226,6 +233,8 @@
 <script src="vistas/JS/jquery.dataTables.min.js"></script>
 <!-- JavaScript -->
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <!-- Boostrap-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">

@@ -57,101 +57,107 @@ error_reporting(0);
 
 
     <!-- SIDEBAR -->
-    <section id="sidebar">
-        <a href="#" class="brand">
-            <img src="src/images/logo.svg" class="logo-sidebar" alt="Logo Diebold Nixdorf">
-            <span class="text">AdminHub</span>
-        </a>
-        <ul class="side-menu top">
-            <li class="active">
-                <a href="#">
-                    <i class='bx bxs-dashboard'></i>
-                    <span class="text">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-shopping-bag-alt'></i>
-                    <span class="text">My Store</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-doughnut-chart'></i>
-                    <span class="text">Analytics</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-message-dots'></i>
-                    <span class="text">Message</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">Team</span>
-                </a>
-            </li>
-        </ul>
-        <ul class="side-menu">
-            <li>
-                <a href="#">
-                    <i class='bx bxs-cog'></i>
-                    <span class="text">Settings</span>
-                </a>
-            </li>
-            <li>
-                <a href="index.php?pagina=logout" class="logout">
-                    <i class='bx bxs-log-out-circle'></i>
-                    <span class="text">Logout</span>
-                </a>
-            </li>
-        </ul>
-    </section>
-    <!-- SIDEBAR -->
+<section id="sidebar">
+	<a href="#" class="brand">
+		<img src="src/images/logo.svg" class="logo-sidebar" alt="Logo Diebold Nixdorf">
+		<span class="text">Diebol Nixdorf</span>
+	</a>
+	<ul class="side-menu top">
+		<li class="">
+			<a href="index.php?paginaAdmin=mainAdmin">
+				<i class='bx bxs-dashboard'></i>
+				<span class="text">Inicio</span>
+			</a>
+		</li>
+		<li class="screen_admin active">
+			<a href="#">
+				<i class='bx bxs-shopping-bag-alt'></i>
+				<span class="text">Pantalla Administrativa</span>
+			</a>
+		</li>
+		<li>
+			<a href="index.php?paginaAdmin=record">
+				<i class='bx bxs-message-dots'></i>
+				<span class="text">Historial / Reportes</span>
+			</a>
+		</li>
+		<li>
+			<a href="index.php?paginaAdmin=managementAlarmsAdmin">
+				<i class='bx bxs-group'></i>
+				<span class="text">Informacion ATM'S</span>
+			</a>
+		</li>
+	</ul>
+	<ul class="side-menu">
+		<!--<li>
+				<a href="#">
+					<i class='bx bxs-cog' ></i>
+					<span class="text">Settings</span>
+				</a>
+			</li>-->
+	</ul>
+</section>
+
+<!-- SIDEBAR -->
 
 
 
-    <!-- CONTENT -->
-    <section id="content">
-        <!-- NAVBAR -->
-        <nav>
-            <i class='bx bx-menu'></i>
-            <a href="#" class="nav-link">Categories</a>
-            <form action="#">
-                <div class="form-input">
-                    <input type="search" placeholder="Search...">
-                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
-                </div>
-            </form>
-            <input type="checkbox" id="switch-mode" hidden>
-            <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
-            <a href="#" class="profile">
-                <img src="src/images/users.png">
-            </a>
-            <span class="triangulo"></span>
-            <span class="menu" id="menu">
-                <p class="menu-user"><?php
-                echo $_SESSION['user_name'];
-            ?></p>
-                <p><?php 
-                date_default_timezone_set("America/Bogota");
-                echo date("d/m/Y | H:iA");
-            ?></p>
-                <li>
-                    <a href="#" class="logout">
-                        <i class='bx bxs-log-out-circle'></i>
-                        <a href="index.php?pagina=logout"><span class="text">Logout</span></a>
-                    </a>
-                </li>
-            </span>
-        </nav>
-        <!-- NAVBAR -->
+<!-- CONTENT -->
+<section id="content">
+	<div class="tables-admin">
+		<a href="index.php?paginaAdmin=usersAdmin" class="active">
+			<i class='bx bxs-shopping-bag-alt'></i>
+			<span class="text-tables">Panel Usuarios</span>
+		</a><br>
+		<a href="index.php?paginaAdmin=managementAlarmsAdmin">
+			<i class='bx bxs-shopping-bag-alt'></i>
+			<span class="text-tables">Panel Atm's</span>
+		</a><br>
+		<a href="index.php?paginaAdmin=record">
+			<i class='bx bxs-shopping-bag-alt'></i>
+			<span class="text-tables">Panel Historial</span>
+		</a>
+	</div>
+    <nav>
+		<i class='bx bx-menu'></i>
+		<!--<a href="#" class="nav-link">Categories</a-->
+		<form action="#">
+			<!--<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>-->
+		</form>
+		<input type="checkbox" id="switch-mode" hidden>
+		<label for="switch-mode" class="switch-mode"></label>
+		<!--<a href="#" class="notification">
+				<i class='bx bxs-bell' ></i>
+				<span class="num">8</span>
+			</a-->
+		<a href="#" class="profile">
+			<img src="src/images/users.png">
+		</a>
+		<span class="triangulo"></span>
+		<span class="menu" id="menu">
+			<p class="menu-user"><?php
+					echo $_SESSION['user_name'];
+					//$v = mysqli_query($conn, "SELECT * FROM users WHERE id_user ");
+					//while($actions = mysqli_fetch_row($v))
+					//echo $actions[0]
+                ?></p>
+			<p><?php 
+					date_default_timezone_set("America/Bogota");
+					echo date("d/m/Y | H:iA");
+				?></p>
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bxs-log-out-circle'></i>
+					<a href="index.php?paginaGlobal=logout"><span class="text">Logout</span></a>
+				</a>
+			</li>
+		</span>
+
+	</nav>
+	<!-- NAVBAR -->
 
         <!-- MAIN -->
         <main>

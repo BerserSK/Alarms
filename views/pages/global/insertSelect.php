@@ -2,6 +2,18 @@
     include("models/db.php");
     include_once("models/conexion.php");
 
+    if (!isset($_SESSION["validar"]) || $_SESSION["validar"] != "ok" ){
+	    echo '<script> window.location = "index.php?paginaGlobal=login";</script>';
+	}
+
+    if (!isset($value["id_rol_FK"] ) || $value["id_rol_FK"] != 1 ){
+	    echo '<script> window.location = "index.php?paginaUser=managementAlarmsUser";</script>';
+	    return;
+	}else{
+        echo '<script> window.location = "index.php?paginaAdmin=managementAlarmsAdmin";</script>';
+	    return; 
+    }  
+
     $date = $_POST['date'];
     $person = $_POST['person'];
     $time = $_POST['time'];
@@ -21,14 +33,7 @@
         var_dump($e);
         exit;
     }
-    $lectura = ControladorFormularios::ctrSeleccionar(null);
-     foreach($lectura as $key=>$value)
-    if (!isset($value["id_rol_FK"] ) || $value["id_rol_FK"] != 1 ){
-	    echo '<script> window.location = "index.php?paginaUser=managementAlarmsUser";</script>';
-	    return;
-	}else{
-        echo '<script> window.location = "index.php?paginaAdmin=managementAlarmsAdmin";</script>';
-	    return; 
-    }   
+
+    
 
 ?>

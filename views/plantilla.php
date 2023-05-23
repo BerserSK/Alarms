@@ -20,6 +20,7 @@
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="sweetalert2.all.min.js"></script>
 
 	<!--Css-->
 
@@ -39,7 +40,7 @@
 	<!-- Semantic UI theme -->
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
 	<!-- Bootstrap theme -->
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min">
 
 
 	<!--=====================================
@@ -47,7 +48,7 @@
 	======================================-->	
 
 	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<!-- DataTables  -->
 	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 	<!-- Popper JS -->
@@ -140,13 +141,13 @@
   
 	<!--JS-->
 	<!--Jquery-->
-	 <script src="vistas/JS/jquery.js"></script>
+	 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!--dataTables-->
 	 <script src="vistas/JS/jquery.dataTables.min.js"></script>
 	<!-- JavaScript -->
-	 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 	<!-- Boostrap-->
 	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-	
+
 </body>
 </html>

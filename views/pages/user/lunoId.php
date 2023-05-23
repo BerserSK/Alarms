@@ -30,7 +30,8 @@ if (!isset($_SESSION["validar"]) || $_SESSION["validar"] != "ok" ){
 }
 
 if (!isset(	$_SESSION["id_rol_FK"]) || $_SESSION["id_rol_FK"] != 2 ){
-    echo '<script> window.location = "index.php?paginaGlobal=login";</script>';
+    echo '<script> 
+    window.location = "index.php?paginaGlobal=login";</script>';
 }
 
 $lectura = ControladorFormularios::ctrSeleccionar(null);

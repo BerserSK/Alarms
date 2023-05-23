@@ -5,7 +5,9 @@
 	}
 
 	if (!isset(	$_SESSION["id_rol_FK"]) || $_SESSION["id_rol_FK"] != 1 ){
-	    echo '<script> window.location = "index.php?paginaGlobal=login";</script>';
+	    echo '<script> 
+		alert("No se puede ingresar a esta pagina!")
+		window.location = "index.php?paginaGlobal=login";</script>';
 	}
 
 	$lectura = ControladorFormularios::ctrSeleccionarLunos(null);
@@ -25,6 +27,7 @@
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 	<!-- My CSS -->
 	<link rel="stylesheet" href="src/style/dashboard.css">
 
@@ -178,7 +181,7 @@
 						<i class='bx bx-filter'></i>
 					</div>
 					<div class="container">
-						<table class=" container py-5 	" id="myTable">
+						<table class=" container py-5 	" id="myTable2">
 							<thead class="">
 								<tr>
 									<th>Luno</th><br>
@@ -227,7 +230,7 @@
 
 	<script>
 		$(document).ready(function () {
-			$('#myTable').DataTable({
+			$('#myTable2').DataTable({
 				language: {
 					search: "Buscar:",
 					processing: "Traitement en cours...",

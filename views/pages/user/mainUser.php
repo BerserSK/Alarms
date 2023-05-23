@@ -11,7 +11,9 @@
 	}
 
 	if (!isset(	$_SESSION["id_rol_FK"]) || $_SESSION["id_rol_FK"] != 2 ){
-		echo '<script> window.location = "index.php?paginaGlobal=login";</script>';
+		echo '<script> 
+		alert("No se puede ingresar a esta pagina!")
+		window.location = "index.php?paginaGlobal=login";</script>';
 	}
 	$_SESSION['user_name'];
 	foreach($lectura as $key=>$value);

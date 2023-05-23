@@ -6,7 +6,9 @@
 	}
 
 	if (!isset(	$_SESSION["id_rol_FK"]) || $_SESSION["id_rol_FK"] != 1 ){
-	    echo '<script> window.location = "index.php?paginaGlobal=login";</script>';
+	    echo '<script> 
+		alert("No se puede ingresar a esta pagina!")
+		window.location = "index.php?paginaGlobal=login";</script>';
 	}
 
 	$lectura = ControladorFormularios::ctrSeleccionar(null);
@@ -28,6 +30,7 @@
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="src/style/dashboard.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	<title>AdminHub</title>
 </head>
@@ -214,8 +217,7 @@
 
 												<input type="hidden" name="id_user" value="<?php echo $value["id_user"];?>">
 
-												<button class=""><a href="index.php?paginaAdmin=deleteUsers&id=<?php echo $value['id_user']?>"
-													class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></button>
+												<a onclick="alert_delete(<?php echo $value['id_user']?>)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
 											</form>
 										</div>
 									</td>
@@ -286,6 +288,9 @@
 	<!-- CONTENT -->
 
 	<script>
+
+  
+	
 		$(document).ready(function () {
 			$('#myTable').DataTable({
 				language: {
@@ -336,9 +341,45 @@ window.addEventListener('click',(e)=>{
         venmodalUpdate.style.display="none"
     }
 })
+
+	function alert_delete(codigo) {
+		Swal.fire({
+		title: '¿Estas Seguro?',
+		text: "¡No podrás revertir esto!",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Si, Borralo!',
+		cancelButtonText: 'Cancelar!'
+		}).then((result) => {
+		if (result.isConfirmed) {
+			send_php(codigo)
+		}
+		})
+	}
+
+	function send_php(codigo){
+		parametros = {"id": codigo};
+
+		$.ajax({
+			data: parametros,
+			url: "index.php?paginaAdmin=deleteUsers",
+			type: "GET",
+			beforeSend: function () {},
+			success: function () {
+				Swal.fire("Borrado!","El usuario ha sido eliminado.","success").then((result) =>{
+					window.location.href = "index.php?paginaAdmin=usersAdmin"
+				})
+			}
+		})
+	}
+
 	</script>
 	<script src="src/js/dashboard.js"></script>
 	<script src="src/js/modal.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	
 
 </body>
 
