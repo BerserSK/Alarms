@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2023 a las 16:03:58
+-- Tiempo de generación: 24-05-2023 a las 16:02:01
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -1009,7 +1009,11 @@ INSERT INTO `history` (`id_history`, `hora_fecha`, `nombre_persona_cierre`, `min
 (23, '2023-05-15 07:53:47', '', 240, '', 1, 1051, 'Brayan.Palomino'),
 (24, '2023-05-15 08:35:00', 'Jhonny Martinez', 0, 'Queda ATM sin alarma', 2, 1015, 'Brayan.Palomino'),
 (25, '2023-05-15 09:34:13', '', 56, 'ATM sin alarma', 1, 1137, 'Karen.Zape'),
-(26, '2023-05-15 09:34:00', 'Jhonny Martinez', 0, 'ATM sin alarma', 2, 1137, 'Karen.Zape');
+(26, '2023-05-15 09:34:00', 'Jhonny Martinez', 0, 'ATM sin alarma', 2, 1137, 'Karen.Zape'),
+(27, '2023-05-17 09:24:34', '', 25, '', 1, 1053, 'Brayan.Palomino'),
+(28, '2023-05-18 09:05:01', '', 45, '', 1, 1051, 'Brayan.Palomino'),
+(29, '2023-05-24 08:39:42', '', 78, '', 1, 1015, 'Brayan.Palomino'),
+(30, '2023-05-24 08:40:00', 'Jhonny Martinez', 0, 'N/A\r\n', 2, 1137, 'Brayan.Palomino');
 
 -- --------------------------------------------------------
 
@@ -1033,6 +1037,17 @@ INSERT INTO `rol` (`id_rol`, `rol_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `tst`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `tst` (
+`id_user` int(11)
+,`user_name` varchar(40)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -1050,13 +1065,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `user_name`, `user_password`, `created_at`, `id_rol_FK`, `id_estado_FK`) VALUES
-(2, 'Julian.Ruiz', '456', '2023-05-02', 1, 2),
-(3, 'Johan.Garcia', '123', '2023-05-03', 1, 2),
+(2, 'Julian.Ruiz', '123', '2023-05-02', 1, 2),
+(3, 'Johan.Garcia', '123', '2023-05-03', 2, 2),
 (6, 'Brayan.Palomino', 'Andres#2003', '2023-05-08', 1, NULL),
-(8, 'Luiz.Dias', 'Andres#2003', '2023-05-08', 2, NULL),
-(10, 'Paola.Rodriguez', 'Andres#2003', '2023-05-12', 1, NULL),
-(11, 'William.Latorre', 'Andres#2003', '2023-05-13', 2, NULL),
-(13, 'Karen.Zape', 'Andres#2003', '2023-05-15', 2, NULL);
+(50, 'dsa', 'Andres#2003', '2023-05-24', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -1076,6 +1088,15 @@ CREATE TABLE `users_status` (
 INSERT INTO `users_status` (`id_estado`, `user_status`) VALUES
 (1, b'0'),
 (2, b'1');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `tst`
+--
+DROP TABLE IF EXISTS `tst`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tst`  AS SELECT `u`.`id_user` AS `id_user`, `u`.`user_name` AS `user_name` FROM (`users` `u` join `rol` `r` on(`r`.`id_rol` = `u`.`id_rol_FK`)) ;
 
 --
 -- Índices para tablas volcadas
@@ -1152,7 +1173,7 @@ ALTER TABLE `alarm_action`
 -- AUTO_INCREMENT de la tabla `history`
 --
 ALTER TABLE `history`
-  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -1164,7 +1185,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de la tabla `users_status`

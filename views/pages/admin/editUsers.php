@@ -1,8 +1,9 @@
 <?php include('models/edit.php'); 
 
 if (!isset(	$_SESSION["id_rol_FK"]) || $_SESSION["id_rol_FK"] != 1 ){
+    echo '<script> 
     alert("No se puede ingresar a esta pagina!")
-    echo '<script> window.location = "index.php?paginaGlobal=login";</script>';
+    window.location = "index.php?paginaGlobal=login";</script>';
 }
 ?>
 <link rel="stylesheet" href="src/style/dashboard.css">
@@ -18,6 +19,17 @@ if (!isset(	$_SESSION["id_rol_FK"]) || $_SESSION["id_rol_FK"] != 1 ){
                     <input name="user_password" class="" value="<?php echo $user_password;?>" class="" id="num2" required><span class="barra"></span>
                     <label for="num2" class="">Contraseña Usuario</label>
                 </div>
+                <div class="grupo" >
+					<select name="rol_name" class="action " id="action" ><span class="barra"></span>
+                        <option value="" selected disabled><?php echo $user_rol;?> </option>
+                            <?php 
+                                $v = mysqli_query($conn, "SELECT * FROM users as u inner join rol r on r.id_rol = u.id_rol_FK");
+                                while($actions = mysqli_fetch_row($v)){
+                            ?>
+                        <option value="<?php echo $actions[6] ?>"><?php echo $actions[7] ?></option>
+                                <?php }?>
+                    </select>
+				</div>
                 <button type="submit" class="submit" id="submit" style="margin-left: 39px" name="update" onclick="return edit_alert()" <?php sleep(1) ?>>Guardar!</button><!-- onclick="calcular()"-->
             </div>
         </form>

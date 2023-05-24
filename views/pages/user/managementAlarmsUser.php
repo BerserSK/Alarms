@@ -25,8 +25,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- Boxicons -->
-	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="src/style/dashboard.css">
 
@@ -223,34 +221,7 @@
 	</section>
 	<!-- CONTENT -->
 
-	<script>
-		$(document).ready(function () {
-			$('#myTable').DataTable({
-				language: {
-					search: "Buscar:",
-					processing: "Traitement en cours...",
-					lengthMenu: "Mostrar _MENU_ Elementos",
-					info: "Mostrando _START_ a _END_ de _TOTAL_ Elementos",
-					infoEmpty: "Mostrando 0 a 0 de 0 Elementos",
-					infoFiltered: "(Filtrando de _MAX_ Elementos en Total)",
-					infoPostFix: "",
-					loadingRecords: "Carga en curso...",
-					zeroRecords: "Ningun Elemento Encontrado",
-					emptyTable: "Ningun Dato en la Tabla",
-					paginate: {
-						first: "Primero",
-						previous: "Anterior",
-						next: "Siguiente",
-						last: "Anterior"
-					},
-					aria: {
-						sortAscending: ": Activar para Ordenar la Columna en Orden Ascendente",
-						sortDescending: ": Habilitar para Ordenar la Columna en Orden Descendente"
-					}
-				}
-			});
-		});
-	</script>
+	<script src="src/js/management_alarms.js"></script>
 	<script src="src/js/dashboard.js"></script>
 </body>
 

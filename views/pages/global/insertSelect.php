@@ -6,13 +6,6 @@
 	    echo '<script> window.location = "index.php?paginaGlobal=login";</script>';
 	}
 
-    if (!isset($value["id_rol_FK"] ) || $value["id_rol_FK"] != 1 ){
-	    echo '<script> window.location = "index.php?paginaUser=managementAlarmsUser";</script>';
-	    return;
-	}else{
-        echo '<script> window.location = "index.php?paginaAdmin=managementAlarmsAdmin";</script>';
-	    return; 
-    }  
 
     $date = $_POST['date'];
     $person = $_POST['person'];
@@ -29,7 +22,13 @@
 
         //$ficha23 = "INSERT INTO history SET atm_FK = '$atm_FK'";
         //$ejecutar_insertar_ficha2k3 = mysqli_query($conn, $ficha23);
-    }catch(mysqli_sql_exception $e){
+        if (!isset($_SESSION["id_rol_FK"] ) || $_SESSION["id_rol_FK"] != 1 ){
+            echo '<script> window.location = "index.php?paginaUser=managementAlarmsUser";</script>';
+            return;
+        }else{
+            echo '<script> window.location = "index.php?paginaAdmin=managementAlarmsAdmin";</script>';
+            return; 
+        }    }catch(mysqli_sql_exception $e){
         var_dump($e);
         exit;
     }

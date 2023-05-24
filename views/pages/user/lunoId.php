@@ -297,7 +297,7 @@ error_reporting(0);
     <!-- CONTENT -->
 
 
-    <script src="src/js/Management_alarms.js"></script>
+    <script src="src/js/udLuno.js"></script>
     <script src="src/js/dashboard.js"></script>
 
 </body>

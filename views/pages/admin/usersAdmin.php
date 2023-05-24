@@ -14,10 +14,10 @@
 	$lectura = ControladorFormularios::ctrSeleccionar(null);
 ?>
 
-<?php include('includes/header.php'); ?>
 <?php require_once "models/conexion.php"; ?>
 <?php include("models/db.php"); ?>
 <?php include('models/edit.php'); ?>
+<?php include('includes/header.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,12 +25,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<!-- Boxicons -->
-	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="src/style/dashboard.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	<title>AdminHub</title>
 </head>
@@ -287,99 +283,10 @@
 	</section>
 	<!-- CONTENT -->
 
-	<script>
 
-  
-	
-		$(document).ready(function () {
-			$('#myTable').DataTable({
-				language: {
-					search: "Buscar:",
-					processing: "Traitement en cours...",
-					lengthMenu: "Mostrar _MENU_ Elementos",
-					info: "Mostrando _START_ a _END_ de _TOTAL_ Elementos",
-					infoEmpty: "Mostrando 0 a 0 de 0 Elementos",
-					infoFiltered: "(Filtrando de _MAX_ Elementos en Total)",
-					infoPostFix: "",
-					loadingRecords: "Carga en curso...",
-					zeroRecords: "Ningun Elemento Encontrado",
-					emptyTable: "Ningun Dato en la Tabla",
-					paginate: {
-						first: "Primero",
-						previous: "Anterior",
-						next: "Siguiente",
-						last: "Anterior"
-					},
-					aria: {
-						sortAscending: ": Activar para Ordenar la Columna en Orden Ascendente",
-						sortDescending: ": Habilitar para Ordenar la Columna en Orden Descendente"
-					}
-				}
-			});
-		});
-
-		/////////////////////////////////
-/**Acceder al boton para abrir el modal */
-let btnmodalUpdate=document.getElementById("abrirModalUpdate");
-
-
-/** Acceder a la ventana modal */
-let venmodalUpdate=document.getElementById("ventanaModalUpdate");
-
-/**Acceder al boton cerrar de la ventana modal */
-let cermodalUpdate=document.querySelector(".cerrarModalUser");
-btnmodalUpdate.addEventListener('click',()=>{
-    venmodalUpdate.style.display="block";
-})
-
-cermodalUpdate.addEventListener('click',()=>{
-    venmodalUpdate.style.display="none"
-})
-
-window.addEventListener('click',(e)=>{
-    if(e.target==venmodalUpdate){
-        venmodalUpdate.style.display="none"
-    }
-})
-
-	function alert_delete(codigo) {
-		Swal.fire({
-		title: '¿Estas Seguro?',
-		text: "¡No podrás revertir esto!",
-		icon: 'warning',
-		showCancelButton: true,
-		confirmButtonColor: '#3085d6',
-		cancelButtonColor: '#d33',
-		confirmButtonText: 'Si, Borralo!',
-		cancelButtonText: 'Cancelar!'
-		}).then((result) => {
-		if (result.isConfirmed) {
-			send_php(codigo)
-		}
-		})
-	}
-
-	function send_php(codigo){
-		parametros = {"id": codigo};
-
-		$.ajax({
-			data: parametros,
-			url: "index.php?paginaAdmin=deleteUsers",
-			type: "GET",
-			beforeSend: function () {},
-			success: function () {
-				Swal.fire("Borrado!","El usuario ha sido eliminado.","success").then((result) =>{
-					window.location.href = "index.php?paginaAdmin=usersAdmin"
-				})
-			}
-		})
-	}
-
-	</script>
 	<script src="src/js/dashboard.js"></script>
-	<script src="src/js/modal.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	
+	<script src="src/js/modal.js"></script>	
+	<script src="src/js/UserAdmin.js"></script>	
 
 </body>
 
