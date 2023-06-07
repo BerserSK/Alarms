@@ -26,6 +26,14 @@
             return $respuesta;
         }
 
+         /*=============================================
+        Seleccionar registro Historial 2
+        =============================================*/
+        static public function ctrSeleccionarHistorialTest($valor){
+            $respuesta = ModeloFormularios::mdlSeleccionarHistorialTest($valor);
+            return $respuesta;
+        }
+
 
         /*=============================================
         Login

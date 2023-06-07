@@ -32,7 +32,7 @@
 		<span class="text">Diebol Nixdorf</span>
 	</a>
 	<ul class="side-menu top">
-		<li class="active">
+		<li class="">
 			<a href="index.php?paginaUser=mainUser">
 				<i class='bx bxs-dashboard'></i>
 				<span class="text">Inicio</span>
@@ -58,7 +58,7 @@
 		</li>
 	</ul>
 	<ul class="side-menu bottom">
-		<li>
+		<li class="active">
 			<a href="index.php?paginaUser=updatePassword">
 				<i class='bx bxs-cog' ></i>
 				<span class="text">Cambiar Contraseña</span>
@@ -121,97 +121,47 @@
 
 	</nav>
 	<!-- NAVBAR -->
+    
+    <form action="" method="post">
+        <?php
+            if(isset($_POST['editar'])){
+                require "db.php";
 
-	<!-- MAIN -->
-	<main>
-		<div class="head-title">
-			<div class="left">
-				<h1>Inicio</h1>
-				<ul class="breadcrumb">
-					<li>
-						<a href="#">Dashboard</a>
-					</li>
-					<li><i class='bx bx-chevron-right'></i></li>
-					<li>
-						<a class="active" href="#">Inicio</a>
-					</li>
-				</ul>
-			</div>
-			<!--<a href="#" class="btn-download">
-					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download PDF</span>
-				</a>-->
-		</div>
-		<br>
-		<div class="welcome">
-			<h3 class="welcome_hello">Hola, </h3>
-			<h3 class="users"><?php
-					echo $_SESSION['user_name'];
-                ?></h3>
-		</div>
-		<ul class="box-info">
-			<li>
-				<div class="card">
-					<div class="front">
-						<p class="title-p">Alarmas</p>
-						<i class='bx bxs-calendar-check calendar'></i>
-						<span class="text">
-							<h3>Gestion</h3>
-						</span>
-					</div>
-					<div class="back">
-						<p class="title-p">Alarmas</p>
-						<i class='bx bxs-calendar-check'></i>
-						<span class="text">
-							<button class="btn-primary button-back">Ir a la gestion</button>
-						</span>
-					</div>
-				</div>
-			</li>
+                $passActual = $mysqli->real_escape_string($_POST['passActual']);
+                $pass1 = $mysqli->real_escape_string($_POST['pass1']);
+                $pass2 = $mysqli->real_escape_string($_POST['pass2']);
 
-			<li>
-				<div class="card">
-					<div class="front">
-						<p class="title-p">DocBase</p>
-						<i class='bx bxs-group'></i>
-						<span class="text">
-							<h3>Asignacion</h3>
-						</span>
-					</div>
-					<div class="back">
-						<p class="title-p">DocBase</p>
-						<i class='bx bxs-group'></i>
-						<span class="text">
-							<a href="https://docbase.dieboldnixdorf.com/WADocBase3/WFLogin.aspx" target="_blank"><button
-									class="btn-primary button-back">Ir a DocBase</button></a>
-						</span>
-					</div>
-				</div>
-			</li>
-			<li>
-				<div class="card">
-					<div class="front">
-						<p class="title-p">Informacion</p>
-						<i class='bx bxs-dollar-circle'></i>
-						<h3>Empresa</h3>
-						</span>
-					</div>
-					<div class="back">
-						<p class="title-p">Informacion</p>
-						<i class='bx bxs-dollar-circle'></i>
-						<a href="#"><button class="btn-primary button-back">Ir a la informacion</button></a>
-						</span>
-					</div>
-				</div>
-			</li>
-		</ul>
-	</main>
-	<!-- MAIN -->
-</section>
-<!-- CONTENT -->
+                $passActual = md5($passActual);
+                $pass1 = md5($pass1);
+                $pass2 = md5($pass2);
 
-<!--JS-->
-<script src="src/js/dashboard.js"></script>
-</body>
+                $sqlA = $mysqli->query("SELECT user_password FROM users WHERE id = '".$_SESSION['id_user']."'");
+                $rowA = $sqlA -> fetch_array();
 
-</html>
+                if($rowA['user_password'] == $passActual){
+
+                    if($pass1 == $pass2){
+                        $update = $mysqli->query("UPDATE users SET user_password WHERE id = '".$_SESSION['id_user']."'");
+                        if($update){echo "Se ha actualizado su contraseña";}
+                    }else{ 
+                        echo "Las dos contrasñeas con coinciden";
+                    }
+
+                }else{
+                    echo "Tu contraseña actual no coincide";
+                }
+            }
+
+        ?>
+        <span>Contraseña Actual</span>
+        <input type="text" placeholder="Ingrese la contraseña" name="passActual" autocomplete="off">
+        <span>Contraseña Nueva</span>
+        <input type="text" placeholder="Ingrese la contraseña" name="pass1">
+        <span>Contraseña Verificacion</span>
+        <input type="text" placeholder="Ingrese la contraseña" name="pass2">
+        <button type="submit" value="ok" name="btnmodificar">Cambiar Contraseña</button>
+    </form>
+
+   
+
+    <script src="src/js/dashboard.js"></script>

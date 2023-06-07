@@ -16,7 +16,6 @@
 	
 ?>
 
-<?php include('includes/header.php'); ?>
 <?php require_once "models/conexion.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -174,7 +173,7 @@
 						<i class='bx bx-filter'></i>
 					</div>
 					<div class="container">
-						<table class=" container py-5 	" id="myTable">
+						<table class=" container py-5" id="myTable">
 							<thead class="">
 								<tr>
 									<th>Luno</th><br>

@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    
     $('#myTable').DataTable({
         language: {
             search: "Buscar:",
@@ -23,6 +24,7 @@ $(document).ready(function () {
             }
         }
     });
+
 });
 
 /////////////////////////////////

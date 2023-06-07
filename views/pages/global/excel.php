@@ -41,6 +41,7 @@
 									<th>Hora y fecha</th>
 									<th>Persona Confirma Cierre</th>
 									<th>Minutos requeridos</th>
+									<th>Observaciones</th>
 									<th>Accion realizada</th>
 									<th>Atm</th>
 									<th>Usuario</th>
@@ -52,6 +53,7 @@
 									<td><?php echo $value["hora_fecha"]; ?></td>
 									<td><?php echo $value["nombre_persona_cierre"]; ?></td>
 									<td><?php echo $value["minutes_required"]; ?></td>
+									<td><?php echo $value["observation"]; ?></td>
 									<td><?php echo $value["estado_action"]; ?></td>
 									<td><?php echo $value["atm"]; ?></td>
 									<td><?php echo $value["id_user_FK"]; ?></td>

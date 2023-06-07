@@ -240,6 +240,7 @@
 							<th>Hora y fecha</th>
 							<th>Persona Confirma Cierre</th>
 							<th>Minutos requeridos</th>
+							<th>Observaciones</th>
 							<th>Accion realizada</th>
 							<th>Atm</th>
 							<th>Usuario</th>
@@ -251,6 +252,7 @@
 							<td><?php echo $value["hora_fecha"]; ?></td>
 							<td><?php echo $value["nombre_persona_cierre"]; ?></td>
 							<td><?php echo $value["minutes_required"]; ?></td>
+							<td><?php echo $value["observation"]; ?></td>
 							<td><?php echo $value["estado_action"]; ?></td>
 							<td><?php echo $value["atm"]; ?></td>
 							<td><?php echo $value["id_user_FK"]; ?></td>
@@ -273,12 +275,24 @@
 			<div class="container graficas">
 				<div class="col-lg-4">
 					<canvas id="graficoBar" width="400" height="400"></canvas>
+					<div class="alert alert-warning alert-dismissible fade show" role="alert" style="font-size: 20px">
+						<strong><center> Cierre <i class="fa-solid fa-arrow-up fa-bounce"></i>   /   Apertura <i class="fa-solid fa-arrow-up fa-bounce"></i></center></strong> 
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
 				</div>
 				<div class="col-lg-4">
 					<canvas id="graficoHorizontalBar" width="400" height="400"></canvas>
+					<div class="alert alert-warning alert-dismissible fade show" role="alert" style="font-size: 20px">
+						<strong><center> Arriba = Cierre / Abajo = Apertura </center></strong> 
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
 				</div>
 				<div class="col-lg-4">
 					<canvas id="graficoPie" width="400" height="400"></canvas>
+					<div class="alert alert-warning alert-dismissible fade show" role="alert" style="font-size: 20px">
+						<strong><center> Izquierda = Cierre  / Derecha = Apertura </center></strong> 
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
 				</div>
 				<hr>
 				<div class="container">

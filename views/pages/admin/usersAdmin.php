@@ -29,11 +29,15 @@
 	<link rel="stylesheet" href="src/style/dashboard.css">
 
 	<title>AdminHub</title>
+
 </head>
 
 <body>
 
-
+<div class="cargando">
+    <div class="loader-outter"></div>
+    <div class="loader-inner"></div>
+</div>
 <!-- SIDEBAR -->
 <section id="sidebar">
 	<a href="#" class="brand">
@@ -204,7 +208,7 @@
 									<td><?php echo $value["rol_name"]; ?></td>
 									<td>
 										<div class="btn-group">
-											<div class="px-1">
+											<div class="px-1" style="cursor: pointer">
 												<a href="index.php?paginaAdmin=editUsers&id=<?php echo $value["id_user"]; ?>"
 													class="btn btn-warning"><i class="fas fa-edit"></i></a>
 											</div>
@@ -213,7 +217,7 @@
 
 												<input type="hidden" name="id_user" value="<?php echo $value["id_user"];?>">
 
-												<a onclick="alert_delete(<?php echo $value['id_user']?>)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+												<a onclick="alert_delete(<?php echo $value['id_user']?>)" style="cursor: pointer" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
 											</form>
 										</div>
 									</td>
@@ -231,10 +235,11 @@
 							<div class="grupo">
 								<input type="text" class="" id="num2"  name="user_name" required><span class="barra"></span>
 								<label for="num2" class="label">Insertar Nombre</label>
+								<div id="respuesta"> </div>
 							</div>
 								<div class="grupo">
-									<input type="text" class="" id="num2"  name="user_pass" required><span class="barra"></span>
-									<label for="num2" class="label_pass">Insertar Contraseña</label>
+									<input type="text" class="" id="num2"  name="user_pass" value="Cc$123456789" hidden required><span class="barra"></span>
+									<label for="num2" class="label_pass" hidden>Insertar Contraseña</label>
 								</div>
 								<div class="grupo">
 									<select name="selec_rol" class="action " id="action" ><span class="barra"></span>
@@ -283,7 +288,45 @@
 	</section>
 	<!-- CONTENT -->
 
+	<script>
+		//Efecto Pre-Carga
+		$(window).load(function() {
+          $(".cargando").fadeOut(500);
+      	});
 
+		//Validando si existe la Cedula en BD antes de enviar el Form
+		$("#num2").on("keyup", function(){
+			var user_name = $("#num2").val();//CAPTURANDO EL VALOR DE INPUT CON ID CEDULA
+			var longitudName = $("#num2").val().length;//CUENTO LONGITUD
+
+			//Valido la longitud 
+			if(longitud >= 3){
+				var dataString = 'user_name=' + user_name;
+
+				$.ajax({
+					url: 'validacion.inputs.php',
+					type: "GET",
+					data: dataString,
+					dataType: "JSON",
+
+					success: function(datos){
+						if(datos.success == 1){
+							$("#respuesta").html(datos.message);
+
+							$("input").attr('disabled', true); //Desabilito el input nombre
+							$("input#user_name").attr('disabled', false); //Habilitando el input cedula
+							$("#btnEnviar").attr('disabled',true); //Desabilito el Botton	
+						}else{
+							$("#respuesta").html(datos.message);
+
+							$("input").attr('disabled',false); //Habilito el input nombre
+							$("#btnEnviar").attr('disabled',false); //Habilito el Botton
+						}
+					}
+				})
+			}
+		})
+	</script>
 	<script src="src/js/dashboard.js"></script>
 	<script src="src/js/modal.js"></script>	
 	<script src="src/js/UserAdmin.js"></script>	

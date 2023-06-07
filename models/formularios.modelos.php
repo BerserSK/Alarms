@@ -70,6 +70,23 @@
             $stmt = null;
         }
 
+         /*=============================================
+		Seleccionar registro historial 2
+		=============================================*/
+        static public function mdlSeleccionarHistorialTest($valor){
+            if($valor == null){
+                $stmt = Conect::conectar()->prepare("CALL sp_select_action()");
+                $stmt -> execute();
+                return $stmt -> fetchAll();
+            }else{
+                $stmt = Conect::conectar()->prepare("CALL sp_atm_select(:id_history)");
+                $stmt -> bindParam(":id_history",$valor,PDO::PARAM_STR);
+                return $stmt -> fetch();
+            }
+            $stmt -> close();
+            $stmt = null;
+        }
+
         /*=============================================
 		Seleccionar registro Graficas
 		=============================================*/

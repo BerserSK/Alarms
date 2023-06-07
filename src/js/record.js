@@ -92,12 +92,18 @@ function CargarDatosGraficoBar() {
             var colores = []
             var data = JSON.parse(resp)
             for (var i = 0; i < data.length; i++) {
-                titulo.push(data[i][6]);
-                cantidad.push(data[i][3]);
+                titulo.push(data[i][1]);
+                cantidad.push(data[i][1]);
                 colores.push(colorRGB());
             }
 
-            CrearGrafico(titulo, cantidad, colores, "bar", "Grafico En Barras ", "graficoBar", index);
+            for (var a = 0; a < data.length; a++) {
+                titulo.push(data[a][0]);
+                cantidad.push(data[a][0]);
+                colores.push(colorRGB());
+            }
+
+            CrearGrafico(titulo, cantidad, colores, "bar", "Grafico Cierre/Apertura ", "graficoBar", index);
         }
 
 
@@ -116,12 +122,18 @@ function CargarDatosGraficoBarHorizantal() {
             var colores = []
             var data = JSON.parse(resp)
             for (var i = 0; i < data.length; i++) {
-                titulo.push(data[i][6]);
-                cantidad.push(data[i][3]);
+                titulo.push(data[i][1]);
+                cantidad.push(data[i][1]);
                 colores.push(colorRGB());
             }
 
-            CrearGrafico(titulo, cantidad, colores, "bar", "Grafico En Barras Historial",
+            for (var a = 0; a < data.length; a++) {
+                titulo.push(data[a][0]);
+                cantidad.push(data[a][0]);
+                colores.push(colorRGB());
+            }
+
+            CrearGrafico(titulo, cantidad, colores, "bar", "Grafico Cierre/Apertura",
                 "graficoHorizontalBar", index);
         }
 
@@ -141,12 +153,18 @@ function CargarDatosGraficoPie() {
             var colores = []
             var data = JSON.parse(resp)
             for (var i = 0; i < data.length; i++) {
-                titulo.push(data[i][6]);
-                cantidad.push(data[i][3]);
+                titulo.push(data[i][1]);
+                cantidad.push(data[i][1]);
                 colores.push(colorRGB());
             }
 
-            CrearGrafico(titulo, cantidad, colores, "pie", "Grafico En Barras Historial", "graficoPie",
+            for (var a = 0; a < data.length; a++) {
+                titulo.push(data[a][0]);
+                cantidad.push(data[a][0]);
+                colores.push(colorRGB());
+            }
+
+            CrearGrafico(titulo, cantidad, colores, "pie", "Grafico Cierre/Apertura", "graficoPie",
                 index);
         }
 

@@ -5,6 +5,6 @@
 
     $valor = "";
     $MG = new ModeloFormularios();
-    $consulta = $MG -> mdlSeleccionarHistorial($valor);
+    $consulta = $MG -> mdlSeleccionarHistorialTest($valor);
     echo json_encode($consulta)
 ?>

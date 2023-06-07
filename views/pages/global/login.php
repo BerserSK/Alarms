@@ -20,12 +20,12 @@
 			<form class="login" method="POST" id="frm-login">
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" id="g-user" name="user_name" placeholder="Usuario">
+					<input type="text" class="login__input" id="g-user" name="user_name" placeholder="Usuario" autocomplete="off">
 					<span class="msn-errorS"></span>
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input"  id="g-pass" name="user_password" placeholder="Contraseña">
+					<input type="password" class="login__input"  id="g-pass" name="user_password" placeholder="Contraseña" autocomplete="off">
 					<span class="msn-errorI"></span>
 				</div>
 

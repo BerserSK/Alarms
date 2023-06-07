@@ -22,12 +22,6 @@ if (!isset(	$_SESSION["id_rol_FK"]) || $_SESSION["id_rol_FK"] != 1 ){
                 <div class="grupo" >
 					<select name="rol_name" class="action " id="action" ><span class="barra"></span>
                         <option value="" selected disabled><?php echo $user_rol;?> </option>
-                            <?php 
-                                $v = mysqli_query($conn, "SELECT * FROM users as u inner join rol r on r.id_rol = u.id_rol_FK");
-                                while($actions = mysqli_fetch_row($v)){
-                            ?>
-                        <option value="<?php echo $actions[6] ?>"><?php echo $actions[7] ?></option>
-                                <?php }?>
                     </select>
 				</div>
                 <button type="submit" class="submit" id="submit" style="margin-left: 39px" name="update" onclick="return edit_alert()" <?php sleep(1) ?>>Guardar!</button><!-- onclick="calcular()"-->
